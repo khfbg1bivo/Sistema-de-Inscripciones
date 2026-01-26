@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Especialidad de Ciencias</title>
+
+<!-- CONEXIÓN AL CSS -->
+<link rel="stylesheet" href="css/estiloesp.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>Unidad Educativa 10 de Agosto</h1>
+        <div class="logo">
+            <img src="../img/logo.jpg" alt="Logo">
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html">Inicio</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+<section>
+    <h2>Especialidad de Ciencias</h2>
+
+    <p class="descripcion">
+        La especialidad de Ciencias fortalece el pensamiento crítico y analítico
+        de los estudiantes mediante el estudio de la biología, la química y la
+        física. Esta área prepara a los alumnos para comprender los fenómenos
+        naturales, desarrollar habilidades investigativas y continuar estudios
+        superiores en áreas científicas y de la salud.
+    </p>
+
+    <div class="slider">
+        <div class="slides" id="slides">
+            <img src="img/Cien/C1.jpg">
+            <img src="img/Cien/C2.jpg">
+            <img src="img/Cien/C3.jpg">
+        </div>
+
+        <button class="arrow prev" onclick="mover(-1)">❮</button>
+        <button class="arrow next" onclick="mover(1)">❯</button>
+    </div>
+
+    <a href="Formularios/CienciasFor.html" class="btn-formulario">Inscribirse en Ciencias</a>
+</section>
+</div>
+
+<footer>
+    <p>&copy; 2025 Unidad Educativa 10 de Agosto</p>
+    <p>Pasaje, El Oro - Ecuador</p>
+</footer>
+
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+
+function mover(dir){
+    index += dir;
+    if(index < 0) index = total - 1;
+    if(index >= total) index = 0;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+</script>
+
+</body>
+</html>

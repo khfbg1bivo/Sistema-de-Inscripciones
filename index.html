@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad Educativa 10 de Agosto</title>
+
+<!-- CONEXIÓN AL ESTILO -->
+<link rel="stylesheet" href="css/estiloprin.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>Unidad Educativa 10 de Agosto</h1>
+        <div class="logo">
+            <img src="../img/logo.jpg" alt="Logo">
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <div class="dropdown">
+            <a href="#">Especialidades ▾</a>
+            <div class="dropdown-content">
+                <a href="Deportes.html">Deportes</a>
+                <a href="Informática.html">Informática</a>
+                <a href="Ciencias.html">Ciencias</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+<section>
+    <h2>Conoce nuestros alrededores</h2>
+
+    <p class="frase-colegio">“Educando futuros, superando desafíos”</p>
+
+    <div class="slider">
+        <div class="slides" id="slides">
+            <img src="img/Col.jpg">
+            <img src="img/Col2.jpg">
+            <img src="img/Col3.jpg">
+            <img src="img/Col4.jpg">
+        </div>
+
+        <button class="arrow prev" onclick="mover(-1)">❮</button>
+        <button class="arrow next" onclick="mover(1)">❯</button>
+    </div>
+
+    <div class="dots" id="dots"></div>
+</section>
+</div>
+
+<footer>
+    <p>&copy; 2025 Unidad Educativa 10 de Agosto</p>
+    <p>Pasaje, El Oro - Ecuador</p>
+</footer>
+
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+const dotsContainer = document.getElementById("dots");
+
+for(let i=0;i<total;i++){
+    const dot=document.createElement("span");
+    dot.classList.add("dot");
+    dot.onclick=()=>irA(i);
+    dotsContainer.appendChild(dot);
+}
+actualizarDots();
+
+function mover(dir){
+    index += dir;
+    if(index < 0) index = total - 1;
+    if(index >= total) index = 0;
+    actualizar();
+}
+
+function irA(i){
+    index = i;
+    actualizar();
+}
+
+function actualizar(){
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    actualizarDots();
+}
+
+function actualizarDots(){
+    document.querySelectorAll(".dot").forEach((d,i)=>{
+        d.classList.toggle("active", i === index);
+    });
+}
+</script>
+
+</body>
+</html>
