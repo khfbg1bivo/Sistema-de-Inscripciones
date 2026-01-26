@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscripción – Deporte</title>
+
+<link rel="stylesheet" href="../css/Formulario.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>Unidad Educativa 10 de Agosto</h1>
+        <div class="logo">
+            <img src="../img/logo.jpg" alt="Logo">
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html">Inicio</a>
+    </div>
+</nav>
+
+<div class="main-content">
+<section>
+    <h2>Formulario de Inscripción – Deportes</h2>
+
+    <form class="formulario" id="formulario">
+
+        <div class="campo">
+            <label>Nombre del estudiante</label>
+            <input type="text" name="nombre" required>
+        </div>
+
+        <div class="campo">
+            <label>Apellidos</label>
+            <input type="text" name="apellidos" required>
+        </div>
+
+        <div class="campo">
+            <label>Edad</label>
+            <input type="number" name="edad" required>
+        </div>
+
+        <div class="campo">
+            <label>Describa el curso a tomar</label>
+            <input type="text" name="curso" required>
+        </div>
+
+        <div class="campo">
+            <label>Representante</label>
+            <input type="text" name="representante" required>
+        </div>
+
+        <div class="campo">
+            <label>Cédula</label>
+            <input type="text" name="cedula" required>
+        </div>
+
+        <div class="campo">
+            <label>Teléfono</label>
+            <input type="tel" name="telefono" required>
+        </div>
+
+        <div class="campo">
+            <label>Institución</label>
+            <select name="institucion" id="institucion" onchange="mostrarOtraInstitucion()" required>
+                <option value="">Seleccione</option>
+                <option value="Unidad Educativa 10 de Agosto">
+                    Unidad Educativa 10 de Agosto
+                </option>
+                <option value="Otra">Otra institución</option>
+            </select>
+        </div>
+
+        <div class="campo" id="otraInstitucionCampo" style="display:none;">
+            <label>Nombre de la otra institución</label>
+            <input type="text" name="otra_institucion" id="otra_institucion">
+        </div>
+
+        <button type="submit" class="boton-formulario">
+            Enviar inscripción
+        </button>
+
+    </form>
+</section>
+</div>
+
+<footer>
+    <p>&copy; 2025 Unidad Educativa 10 de Agosto</p>
+</footer>
+
+<script>
+const form = document.getElementById("formulario");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const data = {
+        nombre: form.nombre.value,
+        apellidos: form.apellidos.value,
+        edad: form.edad.value,
+        curso: form.curso.value,
+        representante: form.representante.value,
+        cedula: form.cedula.value,
+        telefono: form.telefono.value,
+        institucion: form.institucion.value,
+        otra_institucion: form.otra_institucion.value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbzrgPwT80--YJm8KWd45yI5wbVi1b8yFOy6U0ZIOZ6DB2NhEo9hrmAbWt5JTOJMam3n1g/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(() => {
+        alert("Inscripción enviada correctamente");
+        form.reset();
+        document.getElementById("otraInstitucionCampo").style.display = "none";
+    })
+    .catch(() => {
+        alert("Error al enviar los datos");
+    });
+});
+
+function mostrarOtraInstitucion(){
+    const institucion = document.getElementById("institucion").value;
+    const campoOtra = document.getElementById("otraInstitucionCampo");
+    const inputOtra = document.getElementById("otra_institucion");
+
+    if(institucion === "Otra"){
+        campoOtra.style.display = "flex";
+        inputOtra.required = true;
+    } else {
+        campoOtra.style.display = "none";
+        inputOtra.required = false;
+        inputOtra.value = "";
+    }
+}
+</script>
+
+</body>
+</html>
