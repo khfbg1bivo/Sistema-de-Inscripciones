@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Especialidad de Deportes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialidad de Deportes</title>
 
-<!-- CONEXIÓN AL CSS -->
-<link rel="stylesheet" href="CSS/estiloesp.CSS">
+    <!-- CONEXIÓN AL CSS -->
+    <link rel="stylesheet" href="CSS/estiloesp.css">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 <nav>
     <div class="nav-container">
         <a href="index.html">Inicio</a>
-        </div>
+    </div>
 </nav>
 
 <div class="main-content">
@@ -40,10 +40,18 @@
 
     <div class="slider">
         <div class="slides" id="slides">
-            <img src="img/Depor/Dep1.jpg">
+            <img src="img/Depor/Dep1.jpg" alt="Deporte 1">
+            <img src="img/Depor/Dep2.jpg" alt="Deporte 2">
+            <img src="img/Depor/Dep3.jpg" alt="Deporte 3">
+        </div>
+
+        <button class="arrow prev" onclick="mover(-1)">❮</button>
+        <button class="arrow next" onclick="mover(1)">❯</button>
     </div>
 
-    <a href="Formularios/DeportesFor.html" class="btn-formulario">Inscribirse en Deportes</a>
+    <a href="Formularios/DeportesFor.html" class="btn-formulario">
+        Inscribirse en Deportes
+    </a>
 </section>
 </div>
 
@@ -57,10 +65,10 @@ let index = 0;
 const slides = document.getElementById("slides");
 const total = slides.children.length;
 
-function mover(dir){
+function mover(dir) {
     index += dir;
-    if(index < 0) index = total - 1;
-    if(index >= total) index = 0;
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
     slides.style.transform = `translateX(-${index * 100}%)`;
 }
 </script>
