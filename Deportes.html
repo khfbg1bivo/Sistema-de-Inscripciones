@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Especialidad de Deportes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Especialidad de Deportes</title>
 
-    <!-- CONEXIÓN AL CSS -->
-    <link rel="stylesheet" href="CSS/estiloesp.CSS">
+<!-- CONEXIÓN AL CSS -->
+<link rel="stylesheet" href="CSS/estiloesp.CSS">
 </head>
 
 <body>
@@ -32,27 +32,23 @@
     <h2>Especialidad de Deportes</h2>
 
     <p class="descripcion">
-        La especialidad de Deportes promueve el desarrollo físico, la disciplina
-        y el trabajo en equipo. Los estudiantes fortalecen hábitos saludables,
-        valores deportivos y habilidades motrices, preparándose tanto para la
-        vida activa como para posibles estudios y carreras relacionadas con la
-        actividad física y el deporte.
+        La especialidad de Ciencias fortalece el pensamiento crítico y analítico
+        de los estudiantes mediante el estudio de la biología, la química y la
+        física. Esta área prepara a los alumnos para comprender los fenómenos
+        naturales, desarrollar habilidades investigativas y continuar estudios
+        superiores en áreas científicas y de la salud.
     </p>
 
     <div class="slider">
         <div class="slides" id="slides">
-            <img src="img/Depor/Dep1.jpg" alt="Deporte 1">
-            <img src="img/Depor/Dep2.jpg" alt="Deporte 2">
-            <img src="img/Depor/Dep3.jpg" alt="Deporte 3">
+            <img src="img/Depor/Dep1.jpg">
         </div>
 
         <button class="arrow prev" onclick="mover(-1)">❮</button>
         <button class="arrow next" onclick="mover(1)">❯</button>
     </div>
 
-    <a href="Formularios/DeportesFor.html" class="btn-formulario">
-        Inscribirse en Deportes
-    </a>
+    <a href="Formularios/CienciasFor.html" class="btn-formulario">Inscribirse en Ciencias</a>
 </section>
 </div>
 
@@ -66,10 +62,10 @@ let index = 0;
 const slides = document.getElementById("slides");
 const total = slides.children.length;
 
-function mover(dir) {
+function mover(dir){
     index += dir;
-    if (index < 0) index = total - 1;
-    if (index >= total) index = 0;
+    if(index < 0) index = total - 1;
+    if(index >= total) index = 0;
     slides.style.transform = `translateX(-${index * 100}%)`;
 }
 </script>
